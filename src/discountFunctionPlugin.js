@@ -4,14 +4,22 @@ import { FunctionPlugin, CellError, ErrorType } from "hyperformula";
  */
 export class Discount extends FunctionPlugin {
   discount(ast, state) {
+
+
     return this.runFunction(
       ast.args,
       state,
       this.metadata("DISCOUNT"),
-      function (arg1) {
+      function (arg) {
         let discount = 0;
 
-        let [quantity, price] = arg1.data[0];
+        if(!arg?.data[0] || !arg){
+           return new CellError(ErrorType.VALUE)
+        }
+
+        let [quantity, price] = arg?.data[0];
+
+        
 
         if (quantity >= 100) {
           discount = parseFloat(quantity * price * 0.1).toFixed(2);
