@@ -2,7 +2,7 @@ body {
   font-family: sans-serif;
   counter-reset: row-counter col-counter;
   padding: 15px;
-  font-size: 1.4rem;
+  /* font-size: 1.4rem; */
 }
 
 .example button.run {
@@ -22,6 +22,7 @@ body {
 
 table {
   table-layout: fixed;
+  font-size: 14px;
 }
 
 table tbody tr td,
